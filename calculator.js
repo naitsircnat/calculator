@@ -3,21 +3,30 @@
 function operate() {
 
 }
-
 */
 
 const display=document.querySelector(".display");
 
 const numButtons=document.querySelectorAll(".numButton")
+
+let displayText;
     
 numButtons.forEach(function(numButton){
     numButton.addEventListener("click", function() {
-        display.textContent=numButton.id;
+        displayText+=numButton.id;
+        display.textContent=displayText;
     })
 })
 
 
+
+
 /*
+NOTE:
+- ensure text can't overflow out of display
+
+OVERVIEW:
+
 A) do up interface
 
 1) when key in number - shows up on screen
