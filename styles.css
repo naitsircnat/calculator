@@ -15,7 +15,7 @@ body{
     flex-direction: column;
 }
 
-#display{
+.display{
     flex: 1;
     border: 2px solid black;
     margin-bottom: 5px;
