@@ -7,11 +7,12 @@ function operate() {
 */
 
 const display=document.querySelector(".display");
-const buttons=document.querySelectorAll(".button")
+
+const numButtons=document.querySelectorAll(".numButton")
     
-buttons.forEach(function(button){
-    button.addEventListener("click", function() {
-        display.textContent="hello";
+numButtons.forEach(function(numButton){
+    numButton.addEventListener("click", function() {
+        display.textContent=numButton.id;
     })
 })
 
