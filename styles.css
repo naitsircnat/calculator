@@ -26,7 +26,7 @@ body{
     gap: 5px;
 }
 
-.numButton, .funcButton{
+.numButton, .opButton, .funcButton, .equalButton, .clearButton{
     border: 2px solid black;
     display: flex;
     flex: 1;
