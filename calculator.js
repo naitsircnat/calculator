@@ -1,14 +1,26 @@
-let firstNum="", answer;
-let secondNum="";
+let answer;
 let numText="";
 let op="";
 let displayText="";
 let array=[]; 
 
-function add() {answer=parseInt(firstNum) + parseInt(secondNum);}
-function subtract() {answer=parseInt(firstNum) - parseInt(secondNum);}
-function multiply() {answer=firstNum * secondNum;}
-function divide() {answer=firstNum/secondNum;}
+function add() {answer=parseInt(array[0]) + parseInt(array[2]);}
+
+function subtract() {answer=parseInt(array[0]) - parseInt(array[2]);}
+
+function multiply() {answer=parseInt(array[0]) * parseInt(array[2]);}
+
+function divide() {answer=parseInt(array[0]) / parseInt(array[2]);}
+
+function operate() {
+    if (array[1]==["+"]) {add()}; 
+
+    if (array[1]==["-"]) {subtract()}; 
+
+    if (array[1]==["*"]) {multiply()}; 
+
+    if (array[1]==["/"]) {divide()}; 
+}
 
 const display=document.querySelector(".display");
 
@@ -19,7 +31,7 @@ numButtons.forEach(function(numButton){
         numText+=numButton.id;
         display.textContent=numText;
         console.log(array);
-})
+    })
 })
 
 const opButtons=document.querySelectorAll(".opButton");
@@ -27,7 +39,6 @@ const opButtons=document.querySelectorAll(".opButton");
 opButtons.forEach(function(opButton){
     opButton.addEventListener("click", function() {
         op=opButton.id;
-        display.textContent="";
         array.push(numText);
         array.push(op);
         numText="";
@@ -35,14 +46,22 @@ opButtons.forEach(function(opButton){
 })
 })
 
+const equalButton=document.querySelector(".equalButton");
+
+equalButton.addEventListener("click", function(){
+    array.push(numText);
+    console.log(array[1]);
+    operate();
+    display.textContent=answer;
+    console.log(answer)  
+    numText="";
+})
+
+
+
 //delete branch from rock paper scissors
 
 // if (array === 3), then when press any operator, it will operate 
-
-
-
-
-
 
 /*
 
