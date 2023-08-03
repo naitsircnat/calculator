@@ -1,84 +1,50 @@
-let firstNum, secondNum , answer;
+let firstNum="", answer;
+let secondNum="";
+let numText="";
 let op="";
+let displayText="";
+let array=[]; 
+
+function add() {answer=parseInt(firstNum) + parseInt(secondNum);}
+function subtract() {answer=parseInt(firstNum) - parseInt(secondNum);}
+function multiply() {answer=firstNum * secondNum;}
+function divide() {answer=firstNum/secondNum;}
 
 const display=document.querySelector(".display");
 
 const numButtons=document.querySelectorAll(".numButton");
 
-let displayText="";
-let displayText2="";
+numButtons.forEach(function(numButton){
+    numButton.addEventListener("click", function() {
+        numText+=numButton.id;
+        display.textContent=numText;
+        console.log(array);
+})
+})
 
 const opButtons=document.querySelectorAll(".opButton");
 
-numButtons.forEach(function(numButton){
-    numButton.addEventListener("click", function() {
-        displayText+=numButton.id;
-        display.textContent=displayText;
-})
-})
-
 opButtons.forEach(function(opButton){
     opButton.addEventListener("click", function() {
-        firstNum=displayText;
-        op=opButton.id;     
-
-        if (op === "+" || op === "-" || op === "/" || op === "*") {
-            numButtons.forEach(function(numButton){
-            numButton.addEventListener("click", function() {
-                displayText2+=numButton.id;
-                display.textContent=displayText2;
-              })
-        })}
-    })
+        op=opButton.id;
+        display.textContent="";
+        array.push(numText);
+        array.push(op);
+        numText="";
+        console.log(array);
+})
 })
 
-function operate(){
-    secondNum=displayText2;
-    if (op === "+") answer = parseInt(firstNum) + parseInt(secondNum);
-    if (op === "-") answer = firstNum - secondNum;
-    if (op === "*") answer = firstNum*secondNum;
-    if (op === "/") answer = firstNum/secondNum;
-    display.textContent=answer;
-}
+//delete branch from rock paper scissors
 
-const equalButton=document.querySelector(".equalButton");
-
-equalButton.addEventListener("click", operate)
+// if (array === 3), then when press any operator, it will operate 
 
 
 
-/*{
-    secondNum=displayText;
-    if (op === "+") answer = parseInt(firstNum) + parseInt(secondNum);
-    if (op === "-") answer = firstNum - secondNum;
-    if (op === "*") answer = firstNum*secondNum;
-    if (op === "/") answer = firstNum/secondNum;
-    firstNum=answer;
-    display.textContent=firstNum;
 
-    numButtons.forEach(function(numButton){
-        numButton.addEventListener("click", function() {
-            displayText="";
-            displayText+=numButton.id;
-            display.textContent=displayText;
-    })
-    })
-})
 
-*/
 
-// clear button - come back to it 
-   
-const clearButton=document.querySelector(".clearButton");
-
-clearButton.addEventListener ("click", function() {
-    display.textContent="";
-    firstNum="";
-    secondNum="";
-    displayText="";
-    op="";
-    answer="";
-})
+/*
 
 /*
 NOTE:
