@@ -1,36 +1,27 @@
 let answer;
-let numText="";
-let op="";
+let firstNum=""; 
+let secondNum="";
+let op=null;
 let displayText="";
-let array=[]; 
 
-function add() {answer=parseInt(array[0]) + parseInt(array[2]);}
-
-function subtract() {answer=parseInt(array[0]) - parseInt(array[2]);}
-
-function multiply() {answer=parseInt(array[0]) * parseInt(array[2]);}
-
-function divide() {answer=parseInt(array[0]) / parseInt(array[2]);}
+function add() {answer=parseInt(firstNum) + parseInt(secondNum);}
+function subtract() {answer=parseInt(firstNum) - parseInt(secondNum);}
+function multiply() {answer=parseInt(firstNum) * parseInt(secondNum);}
+function divide() {answer=parseInt(firstNum) / parseInt(secondNum);}
 
 function operate() {
-    if (array[1]==["+"]) {add()}; 
-
-    if (array[1]==["-"]) {subtract()}; 
-
-    if (array[1]==["*"]) {multiply()}; 
-
-    if (array[1]==["/"]) {divide()}; 
+    if (op=="+") add();
+    if (op=="-") subtract();
+    if (op=="*") multiply();
+    if (op=="/") divide();
 }
 
 const display=document.querySelector(".display");
-
 const numButtons=document.querySelectorAll(".numButton");
 
 numButtons.forEach(function(numButton){
     numButton.addEventListener("click", function() {
-        numText+=numButton.id;
-        display.textContent=numText;
-        console.log(array);
+        display.textContent+=numButton.id;
     })
 })
 
@@ -38,19 +29,63 @@ const opButtons=document.querySelectorAll(".opButton");
 
 opButtons.forEach(function(opButton){
     opButton.addEventListener("click", function() {
+        firstNum=display.textContent;
         op=opButton.id;
-        array.push(numText);
-        array.push(op);
-        numText="";
-        console.log(array);
-})
-})
+        console.log(firstNum);
+        console.log(op); 
+
+        if (op!=null){
+            numButtons.forEach(function(numButton){
+                numButton.addEventListener("click", function() {
+                    display.textContent="";
+                    secondNum+=numButton.id;
+                    display.textContent=secondNum;
+                    console.log(secondNum);
+                })
+            })
+            }
+        }
+
+)})
+
+/*
+if (op==="+"){{
+console.log("notNull");
+    numButtons.forEach(function(numButton){
+        numButton.addEventListener("click", function() {
+            display.textContent="";
+            secondNum+=numButton.id;
+            display.textContent=secondNum;
+            console.log(secondNum);
+        })
+    
+    opButtons.forEach(function(opButton){
+        opButton.addEventListener("click", function() {
+        display.textContent=""
+        operate();
+        console.log(answer);
+        display.textContent=answer; 
+    })})
+})}}
+*/
+
+/*
+if (op!=null){
+    opButtons.forEach(function(opButton){
+        opButton.addEventListener("click", function() {
+            operate();
+            display.textContent=answer;
+            op=opButton.id;
+            numText="";
+    })
+    })
+}
+*/
+
 
 const equalButton=document.querySelector(".equalButton");
 
 equalButton.addEventListener("click", function(){
-    array.push(numText);
-    console.log(array[1]);
     operate();
     display.textContent=answer;
     console.log(answer)  
@@ -59,7 +94,17 @@ equalButton.addEventListener("click", function(){
 
 
 
-//delete branch from rock paper scissors
+
+/*
+how to store second number without pressing =
+https://stackoverflow.com/questions/73654630/calculate-result-after-clicking-an-operator-on-calculator
+
+CRUX? - 2nd number only adds to array when = is pressed
+
+try back old way where array wasn't used?
+
+*/
+
 
 // if (array === 3), then when press any operator, it will operate 
 
