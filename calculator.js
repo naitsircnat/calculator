@@ -44,9 +44,35 @@ opButtons.forEach(function(opButton){
                 })
             })
             }
-        }
 
+        if (op!=null){
+            opButtons.forEach(function(opButton){
+                opButton.addEventListener("click", function() {
+                    operate();
+                    display.textContent=answer;
+                    op=opButton.id;
+                    numText="";
+            })
+            })
+        }
+    }
 )})
+
+
+
+
+/*
+if (firstNum > 0 && secondNum > 0){
+    console.log("test");
+    opButtons.forEach(function(opButton){
+        opButton.addEventListener("click", function() {
+        display.textContent=""
+        operate();
+        console.log(answer);
+        display.textContent=answer; 
+    })})
+}
+*/
 
 /*
 if (op==="+"){{
@@ -82,7 +108,6 @@ if (op!=null){
 }
 */
 
-
 const equalButton=document.querySelector(".equalButton");
 
 equalButton.addEventListener("click", function(){
@@ -91,8 +116,6 @@ equalButton.addEventListener("click", function(){
     console.log(answer)  
     numText="";
 })
-
-
 
 
 /*
