@@ -1,16 +1,17 @@
 let answer;
 let numText="";
+let secondNum="";
 let op="";
 let displayText="";
-let array=[]; 
+let array=[];
 
-function add() {answer=parseInt(array[0]) + parseInt(array[2]);}
+function add() {answer=parseInt(array[0]) + parseInt(secondNum)}
 
-function subtract() {answer=parseInt(array[0]) - parseInt(array[2]);}
+function subtract() {answer=parseInt(array[0]) - parseInt(secondNum);}
 
-function multiply() {answer=parseInt(array[0]) * parseInt(array[2]);}
+function multiply() {answer=parseInt(array[0]) * parseInt(secondNum);}
 
-function divide() {answer=parseInt(array[0]) / parseInt(array[2]);}
+function divide() {answer=parseInt(array[0]) / parseInt(secondNum);}
 
 function operate() {
     if (array[1]==["+"]) {add()}; 
@@ -32,6 +33,7 @@ numButtons.forEach(function(numButton){
         display.textContent=numText;
         console.log(array);
     })
+    
 })
 
 const opButtons=document.querySelectorAll(".opButton");
@@ -43,21 +45,37 @@ opButtons.forEach(function(opButton){
         array.push(op);
         numText="";
         console.log(array);
-})
-})
+
+        if (array.length==2){
+            numButtons.forEach(function(numButton){
+                numButton.addEventListener("click", function() {
+                    secondNum+=numButton.id;  
+                    console.log(secondNum)       
+                })
+            })
+
+            if (secondNum!==0){
+                opButtons.forEach(function(opButton){
+                    opButton.addEventListener("click", function() {
+                        operate();
+                        console.log(answer);
+                    })})
+            }
+        }
+})})
+
+console.log(secondNum);
 
 const equalButton=document.querySelector(".equalButton");
 
 equalButton.addEventListener("click", function(){
-    array.push(numText);
-    console.log(array[1]);
+    array.push(secondNum);
     operate();
     display.textContent=answer;
-    console.log(answer)  
+    console.log(array)
+    console.log(answer);  
     numText="";
 })
-
-
 
 //delete branch from rock paper scissors
 
