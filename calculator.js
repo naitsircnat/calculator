@@ -6,20 +6,14 @@ let displayText="";
 let array=[];
 
 function add() {answer=parseInt(array[0]) + parseInt(secondNum)}
-
 function subtract() {answer=parseInt(array[0]) - parseInt(secondNum);}
-
 function multiply() {answer=parseInt(array[0]) * parseInt(secondNum);}
-
 function divide() {answer=parseInt(array[0]) / parseInt(secondNum);}
 
 function operate() {
     if (array[1]==["+"]) {add()}; 
-
     if (array[1]==["-"]) {subtract()}; 
-
     if (array[1]==["*"]) {multiply()}; 
-
     if (array[1]==["/"]) {divide()}; 
 }
 
@@ -32,8 +26,7 @@ numButtons.forEach(function(numButton){
         numText+=numButton.id;
         display.textContent=numText;
         console.log(array);
-    })
-    
+    })  
 })
 
 const opButtons=document.querySelectorAll(".opButton");
@@ -43,14 +36,15 @@ opButtons.forEach(function(opButton){
         op=opButton.id;
         array.push(numText);
         array.push(op);
-        numText="";
         console.log(array);
 
-        if (array.length==2){
+        if (numText!=0){
             numButtons.forEach(function(numButton){
                 numButton.addEventListener("click", function() {
-                    secondNum+=numButton.id;  
-                    console.log(secondNum)       
+                    secondNum="";
+                    display.textContent="";
+                    secondNum+=numButton.id;
+                    display.textContent=secondNum;        
                 })
             })
 
@@ -58,13 +52,18 @@ opButtons.forEach(function(opButton){
                 opButtons.forEach(function(opButton){
                     opButton.addEventListener("click", function() {
                         operate();
-                        console.log(answer);
-                    })})
+                        display.textContent=answer;
+                        array=[]
+                        numText=answer;
+                        array.push(answer);
+                        array.push(opButton.id);
+                        console.log(array);
+                    })
+                })
             }
         }
-})})
-
-console.log(secondNum);
+    })
+})
 
 const equalButton=document.querySelector(".equalButton");
 
@@ -77,7 +76,6 @@ equalButton.addEventListener("click", function(){
     numText="";
 })
 
-//delete branch from rock paper scissors
 
 // if (array === 3), then when press any operator, it will operate 
 
@@ -89,17 +87,6 @@ NOTE:
 
 OVERVIEW:
 
-A) do up interface
+1) after first num and second num is operated on, answer = first num
 
-1) when key in number - shows up on screen
-more numbers can be added to the screen
-
-2) after press operator - "capture" full number
-
-3) repeat 1)
-
-4) after press = (or other operators) - "capture" full number and 
-add it to the first number. display answer
-
-5) IF press other operators again, "capture" latest answer and repeat 3)
 */
