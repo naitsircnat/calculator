@@ -37,8 +37,9 @@ opButtons.forEach(function(opButton){
         array.push(numText);
         array.push(op);
         console.log(array);
+        numText="";
 
-        if (numText!=0){
+        if (array[0]!=0){
             numButtons.forEach(function(numButton){
                 numButton.addEventListener("click", function() {
                     secondNum="";
@@ -47,24 +48,25 @@ opButtons.forEach(function(opButton){
                     display.textContent=secondNum;        
                 })
             })
+        }
 
-            if (secondNum!==0){
-                opButtons.forEach(function(opButton){
-                    opButton.addEventListener("click", function() {
-                        operate();
-                        display.textContent=answer;
-                        array=[]
-                        numText=answer;
-                        array.push(answer);
-                        array.push(opButton.id);
-                        console.log(array);
-                    })
+        if (secondNum!==0){
+            opButtons.forEach(function(opButton){
+                opButton.addEventListener("click", function() {
+                    operate();
+                    display.textContent=answer;
+                    array=[]
+                    array.push(answer);
+                    array.push(opButton.id);
+                    console.log(array);
+                    console.log(secondNum);
                 })
-            }
+            })
         }
     })
 })
 
+/*
 const equalButton=document.querySelector(".equalButton");
 
 equalButton.addEventListener("click", function(){
@@ -73,9 +75,8 @@ equalButton.addEventListener("click", function(){
     display.textContent=answer;
     console.log(array)
     console.log(answer);  
-    numText="";
 })
-
+*/
 
 // if (array === 3), then when press any operator, it will operate 
 
