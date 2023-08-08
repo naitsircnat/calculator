@@ -51,28 +51,29 @@ opButtons.forEach(function(opButton){
 
         //for operating on firstNum & secondNum
         else if (firstNum!=="" && secondNum!=="" && op!==""){
-            console.log(op)
             operate();
+            op=opButton.id;
+            console.log(op)
             display.textContent=answer;
             firstNum=answer;
             console.log(firstNum);
         }
+
+        //else if (firstNum!=="" && secondNumop!==""){
+            //op=opButton.id;
+        //}
     })
 })
 
-
 //when equal is pressed
-/*
 const equalButton=document.querySelector(".equalButton");
 
 equalButton.addEventListener("click", function(){
     operate();
     display.textContent=answer;
+    firstNum=answer;
     console.log(answer)  
-    //numText="";
 })
-/*
-
 
 
 
@@ -152,18 +153,7 @@ if (op!=null){
 
 
 
-/*
-how to store second number without pressing =
-https://stackoverflow.com/questions/73654630/calculate-result-after-clicking-an-operator-on-calculator
 
-CRUX? - 2nd number only adds to array when = is pressed
-
-try back old way where array wasn't used?
-
-*/
-
-
-// if (array === 3), then when press any operator, it will operate 
 
 /*
 
