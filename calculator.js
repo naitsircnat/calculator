@@ -59,9 +59,9 @@ opButtons.forEach(function(opButton){
             console.log(firstNum);
         }
 
-        //else if (firstNum!=="" && secondNumop!==""){
-            //op=opButton.id;
-        //}
+        else if (firstNum!=="" && op==""){
+            op=opButton.id;
+        }
     })
 })
 
@@ -72,86 +72,9 @@ equalButton.addEventListener("click", function(){
     operate();
     display.textContent=answer;
     firstNum=answer;
-    console.log(answer)  
+    console.log(answer)
+    op="";  
 })
-
-
-
-/*
-        if (op!=null){
-            numButtons.forEach(function(numButton){
-                numButton.addEventListener("click", function() {
-                    display.textContent="";
-                    secondNum+=numButton.id;
-                    display.textContent=secondNum;
-                    console.log(secondNum);
-                })*/
-            
-/*
-        if (op!=null){
-            opButtons.forEach(function(opButton){
-                opButton.addEventListener("click", function() {
-                    operate();
-                    display.textContent=answer;
-                    op=opButton.id;
-                    numText="";
-            })
-            })
-        }
-    }
-)})
-*/
-
-
-
-/*
-if (firstNum > 0 && secondNum > 0){
-    console.log("test");
-    opButtons.forEach(function(opButton){
-        opButton.addEventListener("click", function() {
-        display.textContent=""
-        operate();
-        console.log(answer);
-        display.textContent=answer; 
-    })})
-}
-*/
-
-/*
-if (op==="+"){{
-console.log("notNull");
-    numButtons.forEach(function(numButton){
-        numButton.addEventListener("click", function() {
-            display.textContent="";
-            secondNum+=numButton.id;
-            display.textContent=secondNum;
-            console.log(secondNum);
-        })
-    
-    opButtons.forEach(function(opButton){
-        opButton.addEventListener("click", function() {
-        display.textContent=""
-        operate();
-        console.log(answer);
-        display.textContent=answer; 
-    })})
-})}}
-*/
-
-/*
-if (op!=null){
-    opButtons.forEach(function(opButton){
-        opButton.addEventListener("click", function() {
-            operate();
-            display.textContent=answer;
-            op=opButton.id;
-            numText="";
-    })
-    })
-}
-*/
-
-
 
 
 
