@@ -1,7 +1,6 @@
 let firstNum="";
 let secondNum="";
 let op="";
-//let answer;
 
 function add() {answer=parseInt(firstNum) + parseInt(secondNum);}
 function subtract() {answer=parseInt(firstNum) - parseInt(secondNum);}
@@ -26,9 +25,6 @@ numButtons.forEach(function(numButton){
         }
         //secondNum input
         else if (firstNum!=="" && op!==""){
-            //to clear display first
-            secondNum="";
-            display.textContent="";
             secondNum+=numButton.id;
             display.textContent=secondNum;
             console.log(secondNum);
@@ -56,11 +52,14 @@ opButtons.forEach(function(opButton){
             console.log(op)
             display.textContent=answer;
             firstNum=answer;
+            //to clear secondNum value
+            secondNum="";
             console.log(firstNum);
         }
 
         else if (firstNum!=="" && op==""){
             op=opButton.id;
+            secondNum="";
         }
     })
 })
@@ -77,24 +76,14 @@ equalButton.addEventListener("click", function(){
 })
 
 
+//when clear button is pressed
+const clearButton=document.querySelector(".clearButton");
 
-/*
+clearButton.addEventListener("click", function(){
+display.textContent="";
+firstNum="";
+secondNum="";
+op=""
+})
 
-/*
-NOTE:
-- ensure text can't overflow out of display
 
-OVERVIEW:
-
-1) when key in number - shows up on screen
-more numbers can be added to the screen
-
-2) after press operator - "capture" full number
-
-3) repeat 1)
-
-4) after press = (or other operators) - "capture" full number and 
-add it to the first number. display answer
-
-5) IF press other operators again, "capture" latest answer and repeat 3)
-*/
