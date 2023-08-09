@@ -72,7 +72,7 @@ equalButton.addEventListener("click", function(){
     display.textContent=answer;
     firstNum=answer;
     console.log(answer)
-    op="";  
+    op="";
 })
 
 
