@@ -47,6 +47,12 @@ opButtons.forEach(function(opButton){
 
         //for operating on firstNum & secondNum
         else if (firstNum!=="" && secondNum!=="" && op!==""){
+
+            if (secondNum=="0"){
+                display.textContent="Exploding in 3.. 2.."
+            }
+
+            else { 
             operate();
             op=opButton.id;
             console.log(op)
@@ -55,6 +61,7 @@ opButtons.forEach(function(opButton){
             //to clear secondNum value
             secondNum="";
             console.log(firstNum);
+            }
         }
 
         else if (firstNum!=="" && op==""){
@@ -68,13 +75,22 @@ opButtons.forEach(function(opButton){
 const equalButton=document.querySelector(".equalButton");
 
 equalButton.addEventListener("click", function(){
-    operate();
-    display.textContent=answer;
-    firstNum=answer;
-    console.log(answer)
-    op="";
-})
+    if (firstNum!=="" && secondNum=="" && op!==""){
+        display.textContent=firstNum;
+    }
 
+    else if (firstNum!=="" && secondNum=="0" && op!==""){
+        display.textContent="Exploding in 3.. 2.."
+    }
+    
+    else {
+        operate();
+        display.textContent=answer;
+        firstNum=answer;
+        console.log(answer)
+        op="";
+    }
+})
 
 //when clear button is pressed
 const clearButton=document.querySelector(".clearButton");
