@@ -7,7 +7,7 @@ body{
 }
 
 #calContainer{
-    height: 320px;
+    height: 300px;
     width: 280px;
     border: 2px solid black;
     padding: 5px;
@@ -26,7 +26,7 @@ body{
     gap: 5px;
 }
 
-.numButton, .opButton, .funcButton, .equalButton, .clearButton{
+.numButton, .opButton, .funcButton, .equalButton, .clearButton, .decimalButton{
     border: 2px solid black;
     display: flex;
     flex: 1;

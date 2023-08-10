@@ -92,14 +92,25 @@ equalButton.addEventListener("click", function(){
     }
 })
 
+//when decimal button is pressed
+const decimalButton=document.querySelector(".decimalButton");
+
+decimalButton.addEventListener("click", function(){    
+
+})
+
 //when clear button is pressed
 const clearButton=document.querySelector(".clearButton");
 
 clearButton.addEventListener("click", function(){
-display.textContent="";
-firstNum="";
-secondNum="";
-op=""
+    display.textContent="";
+    firstNum="";
+    secondNum="";
+    op=""
 })
 
 
+/*
+uncompleted: backspace; not allowing more than one decimal point; 
+not allowing text to overflow when typing;
+*/
